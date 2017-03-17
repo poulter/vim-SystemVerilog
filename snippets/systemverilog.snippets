@@ -114,7 +114,7 @@ snippet final  final ..
 	    ${1}
 	end
 snippet for  for() .. 
-	for(${1:int i = 0}; ${2:i <= n}; ${3:i++}) begin
+	for(${1:int i = 0}; ${2:i <= n}; ${3:++i}) begin
 	    ${4}
 	end
 snippet foreach  foreach(x[i]) ..
@@ -1716,7 +1716,7 @@ snippet vmm  VMM Env
 	   this.mon_0.start_xactor();
 	   this.mon_chan_0.sink(); // flush content of channel
 	   \`vmm_note(log, "Start of Inject");
-	   for (int i = 0; i < 15; i++) begin
+	   for (int i = 0; i < 15; ++i) begin
 	      dropped = 0;
 	      injection_xactn.randomize() with
 		{data < 5; kind==PUSH;};
@@ -4286,7 +4286,7 @@ snippet vmm  VMM Scenario Gen (vmm version 1.1.1)
 	                      ref int unsigned n_insts); 
 	      int i; 
 	 
-	      for (i = 0; i < this.length; i++) begin 
+	      for (i = 0; i < this.length; ++i) begin 
 	         transaction_type item; 
 	         $cast(item, this.items[i].copy()); 
 	\`ifndef VMM_GRAB_DISABLED 
